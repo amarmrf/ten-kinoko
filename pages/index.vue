@@ -74,19 +74,31 @@
         <v-card-actions>
           <v-spacer />
         </v-card-actions>
+        <v-progress-circular
+          indeterminate
+          color="primary"
+        ></v-progress-circular>
       </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo,
+  async mounted() {
+    try {
+      const queryPlace = "?near=tokyo,JP&limit=5"
+      const fetchThis = await this.$services.place.getPlaces(
+        queryPlace
+      )
+      console.log(fetchThis.data)
+      const queryWeather = "&lat=-6&lon=110"
+      const fetchThat = await this.$services.weather.getWeather(queryWeather)
+      console.log(fetchThat.data)
+    } catch (err) {
+      console.error(err)
+    }
   },
 }
 </script>
