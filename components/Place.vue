@@ -104,7 +104,7 @@ export default {
         address: "Jane street IV",
         lat: -6,
         long: 110,
-        name: "Method",
+        name: "Eat and Drink",
         description: "A good place",
         open: "10:00",
         close: "20:00",
