@@ -9,7 +9,7 @@
       <v-expansion-panels>
         <v-expansion-panel v-for="(item, i) in arrayDummy" :key="i">
           <v-expansion-panel-header style="font-weight: bold">
-            Item
+            {{ item.name }}
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row>
@@ -32,7 +32,7 @@
 
               <v-col cols="12">
                 <v-textarea
-                  v-model="text"
+                  v-model="item.address"
                   label="Address"
                   outlined
                   readonly
@@ -53,7 +53,7 @@
 
               <v-col cols="12">
                 <v-textarea
-                  v-model="text"
+                  v-model="item.description"
                   label="Description"
                   outlined
                   readonly
@@ -111,8 +111,6 @@ export default {
         categories: ["Cafe", "Restaurant", "Workspace"],
         contact: "email@mail.com or telephone",
       },
-      shortText: "Test",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     };
   },
   watch: {
