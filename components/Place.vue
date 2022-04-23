@@ -38,17 +38,14 @@
                   readonly
                 ></v-textarea>
               </v-col>
-              <v-col cols="8" class="pl-sm-6 pt-0">
+              <v-col cols="12" sm="7" class="pl-sm-6 pt-0">
                 Contact
                 <p style="font-weight: 500; background-color: white !important">
                   {{ item.contact }}
                 </p>
               </v-col>
-              <v-col cols="4" class="pr-sm-6 pt-0">
-                Google Maps
-                <p style="font-weight: 500; background-color: white !important">
-                  Click here
-                </p>
+              <v-col cols="12" sm="5" class="mb-sm-0 mb-6 pt-0">
+                <v-btn color="white" class="mt-1" @click="openGmaps(item.lat, item.lng)"> Google map </v-btn>
               </v-col>
 
               <v-col cols="12">
@@ -103,7 +100,7 @@ export default {
       dummy: {
         address: "Jane street IV",
         lat: -6,
-        long: 110,
+        lng: 110,
         name: "Eat and Drink",
         description: "A good place",
         open: "10:00",
@@ -118,6 +115,11 @@ export default {
       // traverse array of places
     },
   },
+  methods: {
+    openGmaps(lat, lng) {
+      window.open(`https://maps.google.com/?q=${lat},${lng}`)
+    }
+  }
 };
 </script>
 
