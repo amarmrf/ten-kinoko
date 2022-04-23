@@ -41,7 +41,7 @@
               <v-col cols="8" class="pl-sm-6 pt-0">
                 Contact
                 <p style="font-weight: 500; background-color: white !important">
-                  test@mail.com
+                  {{ item.contact }}
                 </p>
               </v-col>
               <v-col cols="4" class="pr-sm-6 pt-0">
