@@ -5,7 +5,7 @@
     </v-card-title>
     <!-- need to adjust time -->
     <v-card-text class="py-0 px-2" style="min-height: 200px">
-      <p>at {{ selectedTime }}</p>
+      <p>{{ selectedTime }}</p>
       <v-row>
         <v-col
           class="d-flex flex-sm-column justify-sm-center align-center"
@@ -109,7 +109,7 @@
 export default {
   computed: {
     selectedTime() {
-      return new Date(this.forecast[this.page-1].dt)
+      return new Date(this.forecast[this.page-1].dt * 1000)
     }
   },
   props: {
@@ -128,7 +128,7 @@ export default {
   watch: {
     selectedCity(val) {
       this.page = 1
-    }
+    },
   },
 };
 </script>
