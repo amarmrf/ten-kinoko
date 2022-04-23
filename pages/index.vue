@@ -1,8 +1,8 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
+      <div class="text-center mt-16" style="font-size: 60px">
+       🏙️ ☀️ 🌤️ ⛅️ 🌥️ ☁️ 🗾
       </div>
       <v-card class="d-flex flex-column align-center">
         <v-card-title class="headline"> Where are you going? </v-card-title>
