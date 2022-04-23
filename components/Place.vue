@@ -13,13 +13,13 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row>
-              <v-col cols="6" class="pl-sm-6">
+              <v-col cols="12" sm="6" class="pl-sm-6">
                 Open hour
                 <p style="font-weight: 500; background-color: white !important">
                   {{ item.open }} - {{ item.close }}
                 </p>
               </v-col>
-              <v-col cols="6" class="pr-sm-6">
+              <v-col cols="12" sm="6" class="pr-sm-6">
                 Categories
                 <p style="font-weight: 500; background-color: white !important">
                   {{
