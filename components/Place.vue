@@ -45,7 +45,7 @@
                 </p>
               </v-col>
               <v-col cols="12" sm="5" class="mb-sm-0 mb-6 pt-0">
-                <v-btn color="white" class="mt-1" @click="openGmaps(item.lat, item.lng)"> Open map </v-btn>
+                <v-btn color="white" class="mt-sm-2" @click="openGmaps(item.lat, item.lng)"> Open map </v-btn>
               </v-col>
 
               <v-col cols="12">
