@@ -45,7 +45,7 @@
                   background-color: white !important;
                 "
               >
-                {{ forecast[page - 1].main.temp }}
+                {{ parseInt(forecast[page - 1].main.temp - 273) }} &#176;C
               </p>
             </v-col>
             <v-col cols="6" sm="12">
@@ -57,7 +57,7 @@
                   background-color: white !important;
                 "
               >
-                {{ forecast[page - 1].main.feels_like }}
+                {{ parseInt(forecast[page - 1].main.feels_like - 273) }} &#176;C
               </p>
             </v-col>
           </v-row>
@@ -74,7 +74,7 @@
                   background-color: white !important;
                 "
               >
-                {{ forecast[page - 1].wind.speed }}
+                {{ forecast[page - 1].wind.speed }} m/s
               </p>
             </v-col>
             <v-col cols="6" sm="12">
@@ -86,7 +86,7 @@
                   background-color: white !important;
                 "
               >
-                {{ forecast[page - 1].main.humidity }}
+                {{ forecast[page - 1].main.humidity }} %
               </p>
             </v-col>
           </v-row>
