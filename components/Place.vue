@@ -9,7 +9,7 @@
       <v-expansion-panels>
         <v-expansion-panel v-for="(item, i) in arrayDummy" :key="i">
           <v-expansion-panel-header style="font-weight: bold">
-            {{ item.name }}
+            {{ item.name[i] }}
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row>
@@ -101,7 +101,7 @@ export default {
         address: "Jane street IV",
         lat: -6,
         lng: 110,
-        name: "Eat and Drink",
+        name: ["Eat and Drink", "Flower Tea", "Good Food", "Sunny & Co.", "Antiques"],
         description: "A good place",
         open: "10:00",
         close: "20:00",

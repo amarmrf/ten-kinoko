@@ -40,7 +40,7 @@
           />
 
           <!-- change to place card and default -->
-          <p v-else>
+          <p class="ml-1" v-else>
             Happy traveling!
           </p>
 
