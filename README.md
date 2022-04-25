@@ -24,9 +24,6 @@ Design Considerations
 
 Here is the end of my explanation. I must compromise to write in english for better writing speed as the deadline is getting closer
 
-## Demo
-
-For demo visit https://ten-kinoko.vercel.app/
 ## Build Setup
 
 ```bash
