@@ -6,7 +6,9 @@ export default {
 
   publicRuntimeConfig: {
     weatherURL: process.env.WEATHER_URL,
-    weatherKey: process.env.WEATHER_KEY
+    weatherKey: process.env.WEATHER_KEY,
+    placeURL: process.env.FSQ_URL,
+    placeKey: process.env.FSQ_KEY
   },
   privateRuntimeConfig: {
     //weatherKey: process.env.WEATHER_KEY
