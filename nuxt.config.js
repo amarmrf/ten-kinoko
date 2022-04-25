@@ -5,10 +5,11 @@ export default {
   ssr: false,
 
   publicRuntimeConfig: {
-    baseURL: `${process.env.WEATHER_URL}`
+    weatherURL: process.env.WEATHER_URL,
+    weatherKey: process.env.WEATHER_KEY
   },
   privateRuntimeConfig: {
-    apiSecret: process.env.WEATHER_KEY
+    //weatherKey: process.env.WEATHER_KEY
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
