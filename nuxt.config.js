@@ -4,6 +4,12 @@ export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
+  publicRuntimeConfig: {
+    baseURL: `${process.env.WEATHER_URL}`
+  },
+  privateRuntimeConfig: {
+    apiSecret: process.env.WEATHER_KEY
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - ten-kinoko',

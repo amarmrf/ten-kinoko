@@ -1,6 +1,6 @@
 const url = `${process.env.FSQ_URL}`
 
-export default (axios) => ({
+export default (axios, config) => ({
   getPlaces(query) {
     return axios.get(`${url}${query}`, {
       headers: {
