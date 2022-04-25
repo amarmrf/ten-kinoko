@@ -88,8 +88,7 @@ export default {
         const { data } = await this.$services.weather.getWeather(queryWeather);
 
         this.forecast = data.list;
-        console.log(data);
-
+        
         this.isLoading = false;
       } catch (err) {
         console.error(err);
