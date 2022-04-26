@@ -10,9 +10,6 @@ export default {
     placeURL: process.env.FSQ_URL,
     placeKey: process.env.FSQ_KEY
   },
-  privateRuntimeConfig: {
-    //weatherKey: process.env.WEATHER_KEY
-  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - ten-kinoko',

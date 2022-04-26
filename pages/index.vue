@@ -65,7 +65,6 @@ export default {
   watch: {
     async select(val) {
       try {
-        // this.page = 1;
         this.isLoading = true;
       
         this.display = "weather"
