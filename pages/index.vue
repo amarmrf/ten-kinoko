@@ -71,7 +71,7 @@ export default {
         
         this.selectedCity = this.items[val].city;
         
-        const queryPlace = `?near=${this.items[val].city},JP&limit=50&fields=description,tel,email,hours,name,categories,location,geocodes`
+        const queryPlace = `?near=${this.items[val].city},JP&limit=50&query=tourist&fields=description,tel,email,hours,name,categories,location,geocodes`
         const placesData = await this.$services.place.getPlaces(
           queryPlace
         )
