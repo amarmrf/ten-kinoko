@@ -35,7 +35,7 @@
 
           <Place
             v-else-if="selectedCity && display === 'place'"
-            :places="forecast"
+            :places="places"
             :selected-city="selectedCity"
           />
 
@@ -67,23 +67,18 @@ export default {
       try {
         // this.page = 1;
         this.isLoading = true;
-
+      
         this.display = "weather"
         
         this.selectedCity = this.items[val].city;
-        /*
-        const queryPlace = `?near=${this.items[val].city},JP&limit=5`
-        const fetchThis = await this.$services.place.getPlaces(
+        
+        const queryPlace = `?near=${this.items[val].city},JP&limit=50&fields=description,tel,email,hours,name,categories,location,geocodes`
+        const placesData = await this.$services.place.getPlaces(
           queryPlace
         )
 
-        this.selectedLat = fetchThis.data.context.geo_bounds.circle.center.latitude
-        this.selectedLong = fetchThis.data.context.geo_bounds.circle.center.longitude
-        this.places = fetchThis.data.results
-        console.log(this.places)
-
-        const queryWeather = `&lat=${this.selectedLat}&lon=${this.selectedLong}`
-        */
+        this.places = placesData.data.results
+        
         const queryWeather = `&q=${this.selectedCity}`;
         const { data } = await this.$services.weather.getWeather(queryWeather);
 

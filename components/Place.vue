@@ -7,23 +7,23 @@
     <v-card-text class="py-0 px-2" style="min-height: 200px">
        <p>The Famous Ones</p>
       <v-expansion-panels>
-        <v-expansion-panel v-for="(item, i) in arrayDummy" :key="i">
+        <v-expansion-panel v-for="(item, i) in batch" :key="i">
           <v-expansion-panel-header style="font-weight: bold">
-            {{ item.name[i] }}
+            {{ item.name }}
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row>
               <v-col cols="12" sm="6" class="pl-sm-6">
                 Open hour
                 <p style="font-weight: 500; background-color: white !important">
-                  {{ item.open }} - {{ item.close }}
+                  {{ item.hours.display || "-" }}
                 </p>
               </v-col>
               <v-col cols="12" sm="6" class="pr-sm-6">
                 Categories
                 <p style="font-weight: 500; background-color: white !important">
                   {{
-                    item.categories.reduce((x, y) => {
+                    item.categories.map(cat=>cat.name).reduce((x, y) => {
                       return y + ', ' + x;
                     }, "").slice(0,-2)
                   }}
@@ -32,7 +32,7 @@
 
               <v-col cols="12">
                 <v-textarea
-                  v-model="item.address"
+                  v-model="item.location.formatted_address"
                   label="Address"
                   outlined
                   readonly
@@ -41,21 +41,13 @@
               <v-col cols="12" sm="7" class="pl-sm-6 pt-0">
                 Contact
                 <p style="font-weight: 500; background-color: white !important">
-                  {{ item.contact }}
+                  {{ item.tel || "-" }}
                 </p>
               </v-col>
               <v-col cols="12" sm="5" class="mb-sm-0 mb-6 pt-0">
-                <v-btn color="white" class="mt-sm-2" @click="openGmaps(item.lat, item.lng)"> Open map </v-btn>
+                <v-btn color="white" class="mt-sm-2" @click="openGmaps(item.geocodes.main.latitude, item.geocodes.main.longitude)"> Open map </v-btn>
               </v-col>
 
-              <v-col cols="12">
-                <v-textarea
-                  v-model="item.description"
-                  label="Description"
-                  outlined
-                  readonly
-                ></v-textarea>
-              </v-col>
             </v-row>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -64,7 +56,7 @@
 
     <v-card-text class="d-flex justify-center align-center mt-4">
       <!-- cant use this if not got context total for length-->
-      <v-pagination v-model="page" :length="places.length" :total-visible="0" />
+      <v-pagination v-model="page" :length="places.length / 5" :total-visible="0" />
     </v-card-text>
   </v-card>
 </template>
@@ -75,13 +67,9 @@ export default {
     selectedTime() {
       return new Date();
     },
-    arrayDummy() {
-      const returnThis = [];
-      for (let i = 0; i < 5; i++) {
-        returnThis.push(this.dummy);
-      }
-      return returnThis;
-    },
+    batch() {
+      return this.places.slice(5 * (this.page - 1), 5 * (this.page - 1)+5)
+    }
   },
   props: {
     places: {
@@ -96,24 +84,7 @@ export default {
   data() {
     return {
       page: 1,
-      //temporary
-      dummy: {
-        address: "Jane street IV",
-        lat: -6,
-        lng: 110,
-        name: ["Eat and Drink", "Flower Tea", "Good Food", "Sunny & Co.", "Antiques"],
-        description: "A good place",
-        open: "10:00",
-        close: "20:00",
-        categories: ["Cafe", "Restaurant", "Workspace"],
-        contact: "email@mail.com or telephone",
-      },
     };
-  },
-  watch: {
-    page(val) {
-      // traverse array of places
-    },
   },
   methods: {
     openGmaps(lat, lng) {
